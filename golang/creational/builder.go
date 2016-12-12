@@ -18,6 +18,12 @@ type JSONFormatter struct {
 	keyPrefix string
 }
 
+func NewJSONFormatter(prefix string) *JSONFormatter {
+	fmt := JSONFormatter{}
+	fmt.keyPrefix = prefix
+	return &fmt
+}
+
 func (jf *JSONFormatter) FormatData(complexEntity ComplexEntity) string {
 	rmap := complexEntity.dataEntity.GetComplexData()
 	result := "{ id:" + strconv.Itoa(complexEntity.id) + "," + "data:{"
@@ -114,36 +120,161 @@ func (ce *CompanyEntity) GetComplexData() map[string]string {
 	return m
 }
 
+type ComplexDirector struct {
+	builder ComplexBuilder
+}
+
+func NewComplexDirector(builder ComplexBuilder, id int) *ComplexDirector {
+	director := &ComplexDirector{}
+
+	director.builder = builder
+	director.builder.Init()
+	director.builder.SetId(id)
+
+	return director
+}
+
+func (cd *ComplexDirector) Construct(data ...interface{}) *ComplexEntity {
+	cd.builder.SetDataEntity(data...)
+	return cd.builder.GetResult();
+}
+
+type ComplexBuilder interface {
+	Init()
+	SetId(in int)
+	SetDataEntity(data...interface{})
+	GetResult() *ComplexEntity
+}
+
+type UserJSONBuilder struct {
+	complexEntity *ComplexEntity
+}
+
+func (ub *UserJSONBuilder) Init() {
+	ub.complexEntity = &ComplexEntity{}
+	ub.complexEntity.SetFormatter(NewJSONFormatter("test_"))
+}
+
+func (ub *UserJSONBuilder) SetId(id int) {
+	ub.complexEntity.id = id
+}
+
+func (ub *UserJSONBuilder) SetDataEntity(data...interface{}) {
+
+	entity := &UserEntity{}
+
+	if 3 > len(data) {
+		panic("Not enough parameters.")
+	}
+
+	for i, p := range data {
+		switch i {
+		case 0: // name
+			param, ok := p.(string)
+			if !ok {
+				panic("name parameter not type string.")
+			}
+			entity.name = param
+
+		case 1: // email
+			param, ok := p.(string)
+			if !ok {
+				panic("email parameter not type string.")
+			}
+			entity.email = param
+
+		case 2: // phone
+			param, ok := p.(string)
+			if !ok {
+				panic("phone parameter not type int.")
+			}
+			entity.phone = param
+		default:
+			panic("Wrong parameter count.")
+		}
+	}
+	ub.complexEntity.dataEntity = entity
+}
+
+func (ub *UserJSONBuilder) GetResult() *ComplexEntity {
+	return ub.complexEntity
+}
+
+type CompanyKVBuilder struct {
+	complexEntity *ComplexEntity
+}
+
+func (cb *CompanyKVBuilder) Init() {
+	cb.complexEntity = &ComplexEntity{}
+	cb.complexEntity.SetFormatter(NewKVFormatter("", ""))
+}
+
+func (cb *CompanyKVBuilder) SetId(id int) {
+	cb.complexEntity.id = id
+}
+
+func (cb *CompanyKVBuilder) SetDataEntity(data...interface{}) {
+
+	entity := &CompanyEntity{}
+
+	if 5 > len(data) {
+		panic("Not enough parameters.")
+	}
+
+	for i, p := range data {
+		switch i {
+		case 0: // name
+			param, ok := p.(string)
+			if !ok {
+				panic("name parameter not type string.")
+			}
+			entity.name = param
+
+		case 1: // officialEmail
+			param, ok := p.(string)
+			if !ok {
+				panic("email parameter not type string.")
+			}
+			entity.officialEmail = param
+
+		case 2: // infoEmail
+			param, ok := p.(string)
+			if !ok {
+				panic("phone parameter not type int.")
+			}
+			entity.infoEmail = param
+		case 3: // mainPhone
+			param, ok := p.(string)
+			if !ok {
+				panic("phone parameter not type int.")
+			}
+			entity.mainPhone = param
+		case 4: // faxPhone
+			param, ok := p.(string)
+			if !ok {
+				panic("phone parameter not type int.")
+			}
+			entity.faxPhone = param
+		default:
+			panic("Wrong parameter count.")
+		}
+	}
+	cb.complexEntity.dataEntity = entity
+}
+
+func (ub *CompanyKVBuilder) GetResult() *ComplexEntity {
+	return ub.complexEntity
+}
+
 func main() {
-	fmt.Println("wwerqwerqw")
+	fmt.Println("Builder pattern Example")
 
-	user := &ComplexEntity{id:1,
-		dataEntity: &UserEntity{
-			name: "User",
-			email: "test@test.com",
-			phone: "555333222"}}
+	uDirector := NewComplexDirector(&UserJSONBuilder{}, 54)
+	fmt.Println(uDirector.Construct("User Json", "user_json@test.com", "11122211").GetFormatted())
 
-	fmt.Println(user.GetComplexData())
-	user.SetFormatter(&JSONFormatter{keyPrefix: "test_"})
-	fmt.Println(user.GetFormatted())
-	user.SetFormatter(NewKVFormatter("", ""))
-	fmt.Println(user.GetFormatted())
+	cDirector := NewComplexDirector(&CompanyKVBuilder{}, 55)
+	fmt.Println(cDirector.Construct("Company 1", "company_1@test.com", "company_1_info@test.com", "443344335", "332233225").GetFormatted())
 
-
-	company := &ComplexEntity{id:1,
-		dataEntity: &CompanyEntity{
-			name: "User",
-			officialEmail: "test@test.com",
-			infoEmail: "test_info@test.com",
-			mainPhone: "555333222",
-			faxPhone: "555333111",
-		}}
-
-	fmt.Println(company.GetComplexData())
-	company.SetFormatter(&JSONFormatter{keyPrefix: "test_"})
-	fmt.Println(company.GetFormatted())
-	company.SetFormatter(NewKVFormatter("", ""))
-	fmt.Println(company.GetFormatted())
 }
 
 
