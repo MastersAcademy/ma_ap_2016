@@ -1,16 +1,16 @@
 import Foundation
 
-class Singleton {
+class Singleton: CustomStringConvertible {
     // class constant with lazy initialization
     // also thread safe
     static let sharedInstance = Singleton()
     
     var number: Int = 0
-    var description: String = ""
+    var someDescription: String = ""
     
     private init() {}
     
-    func printObj() {
-        print("Singleton{number:\(self.number), description:\(self.description)}")
+    var description: String {
+        return "Singleton{number:\(self.number), someDescription:\(self.someDescription)}"
     }
 }

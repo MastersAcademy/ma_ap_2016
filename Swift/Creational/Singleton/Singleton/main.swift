@@ -2,10 +2,11 @@ import Foundation
 
 let x = Singleton.sharedInstance
 x.number = 5
-x.printObj()
+print(x)
 
 let y = Singleton.sharedInstance
-y.description = "test"
-x.printObj()
-y.printObj()
+y.someDescription = "test"
+print(x)
+print(y)
+
 
