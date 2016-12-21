@@ -1,4 +1,12 @@
-//: Playground - noun: a place where people can play
+/*:
+ Master Academy - Design Patterns implemented in Swift 3.0
+ */
+/*:
+# Abstract Factory
+The abstract factory pattern is used to provide a client with a set of related or dependant objects. The "family" of objects created by the factory are determined at run-time.
+ 
+  ![Playground icon](AbstractFactory.png "An icon I seesawed")
+*/
 
 import UIKit
 import Foundation
@@ -222,7 +230,7 @@ class ChikagoPizzaStore: PizzaStore {
     }
 }
 
-
+/** # Usage */
 let nyStore = NYPizzaStore()
 let chikagoStore = ChikagoPizzaStore()
 var pizza: Pizza

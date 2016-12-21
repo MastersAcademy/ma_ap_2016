@@ -1,5 +1,11 @@
 //: Playground - noun: a place where people can play
 
+/*:
+ # Factory Simple
+ 
+ ![Playground icon](SimpleFactory.png "An icon I seesawed")
+ */
+
 import UIKit
 import Foundation
 
