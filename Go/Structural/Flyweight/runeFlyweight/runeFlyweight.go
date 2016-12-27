@@ -3,6 +3,7 @@ package runeFlyweight
 import (
 	"fmt"
 	"math/rand"
+	"sync"
 	"time"
 )
 
@@ -28,6 +29,7 @@ func (f *Flyweight) String() string {
 }
 
 type Factory struct {
+	sync.Mutex
 	pool map[rune]*Flyweight
 }
 
@@ -39,6 +41,8 @@ func NewFactory() *Factory {
 }
 
 func (f *Factory) GetFlyweight(r rune) *Flyweight {
+	f.Lock()
+	defer f.Unlock()
 	x, ok := f.pool[r]
 	if !ok {
 		x = &Flyweight{r, colors[rand.Intn(len(colors))]}
