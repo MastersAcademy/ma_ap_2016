@@ -8,15 +8,16 @@ import (
 )
 
 var (
-	red     = string([]byte{27, 91, 57, 49, 59, 52, 48, 109})
-	green   = string([]byte{27, 91, 57, 50, 59, 52, 48, 109})
-	yellow  = string([]byte{27, 91, 57, 51, 59, 52, 48, 109})
-	blue    = string([]byte{27, 91, 57, 52, 59, 52, 48, 109})
-	magenta = string([]byte{27, 91, 57, 53, 59, 52, 48, 109})
-	cyan    = string([]byte{27, 91, 57, 54, 59, 52, 48, 109})
-	gray    = string([]byte{27, 91, 57, 55, 59, 52, 48, 109})
-	reset   = string([]byte{27, 91, 48, 109})
-	colors  = []string{red, green, yellow, blue, magenta, cyan, gray}
+	red     = "\x1b[;91m"
+	green   = "\x1b[;92m"
+	yellow  = "\x1b[;93m"
+	blue    = "\x1b[;94m"
+	magenta = "\x1b[;95m"
+	cyan    = "\x1b[;96m"
+	white   = "\x1b[;97m"
+	reset   = "\x1b[0m"
+
+	colors = []string{red, green, yellow, blue, magenta, cyan, white}
 )
 
 type Flyweight struct {
