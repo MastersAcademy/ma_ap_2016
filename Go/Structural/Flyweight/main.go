@@ -9,7 +9,7 @@ import (
 func main() {
 	factory := runeFlyweight.NewFactory()
 	s := "Hello Golang World!"
-	for _, r := range []rune(s) {
+	for _, r := range s {
 		fmt.Printf("%v", factory.GetFlyweight(r))
 	}
 	fmt.Println()
