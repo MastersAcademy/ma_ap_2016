@@ -10,12 +10,18 @@
 
 import UIKit
 import Foundation
+import PlaygroundSupport
+
 
 struct MagicObject {
     let name: String
     let serialNumber: Int
     var occupier: [String] = []
     var borrowedCount: Int = 0
+    
+    mutating func borrowedCountIncrement() {
+        borrowedCount += 1
+    }
 }
 
 //: a basic pool which allows getting and returning any objects.
@@ -56,8 +62,8 @@ class MagicHouse {
     static var magicDebtInfo:[(String, Int, String)] = []
     private init(){
         var magicObjects:[MagicObject] = []
-        2.times{
-            magicObjects.append(MagicObject(name: "Red Diamond", serialNumber: $0, occupier: [], borrowedCount: 0))
+        2.times{ (number) -> () in
+            magicObjects.append(MagicObject(name: "Red Diamond", serialNumber: number, occupier: [], borrowedCount: 0))
         }
         3.times{
             magicObjects.append(MagicObject(name: "Blue Heart", serialNumber: $0, occupier: [], borrowedCount: 0))
@@ -69,7 +75,7 @@ class MagicHouse {
         var magicObject = sharedInstance.pool.getFromPool()
         if magicObject != nil {
             magicObject!.occupier.append(occupier)
-            magicObject!.borrowedCount += 1
+            magicObject!.borrowedCountIncrement(); // magicObject!.borrowedCount += 1
             magicDebtInfo.append((magicObject!.name, magicObject!.serialNumber, occupier))
             print("\(occupier) is borrowing \(magicObject!.name) #\(magicObject!.serialNumber)")
         }
@@ -105,10 +111,18 @@ print("\n------Starting test...")
 for i in 1 ... 7 {
     var obj = MagicHouse.lendMagicObject(occupier: "person #\(i)")
     if obj != nil {
-        Thread.sleep(forTimeInterval: Double(arc4random_uniform(3)))
-        MagicHouse.receiveMagicObject(obj: obj!)
+//        Thread.sleep(forTimeInterval: Double(arc4random_uniform(3)))
+//        let queue1 = DispatchQueue(label: "com.appcoda.queue1", qos: DispatchQoS.userInitiated)
+        DispatchQueue.global().async {
+            MagicHouse.receiveMagicObject(obj: obj!)
+            DispatchQueue.main.async {
+                // return to main thread
+            }
+        }
     }
 }
+
+print("\n")
 
 let m1 = MagicHouse.lendMagicObject(occupier: "William")
 let m3 = MagicHouse.lendMagicObject(occupier: "Tato")
@@ -116,3 +130,4 @@ MagicHouse.printReport()
 
 
 
+//PlaygroundPage.current.needsIndefiniteExecution = true

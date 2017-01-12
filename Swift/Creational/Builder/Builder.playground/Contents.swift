@@ -79,6 +79,16 @@ enum FragranceType {
     case Oceanic
 }
 
+extension FragranceType {
+    var description: String {
+        switch self {
+        case .Floral: return "Floral"
+        case .Fruity: return "Fruity"
+        case .Oceanic: return "Oceanic"
+        }
+    }
+}
+
 class FragranceBuilderFactory {
     fileprivate var ingFlower = "Jasmine"
     fileprivate var ingFruit = "Strawberry"
