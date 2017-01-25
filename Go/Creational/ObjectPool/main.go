@@ -7,8 +7,6 @@ import (
 	"github.com/MastersAcademy/ma_ap_2016/Go/Creational/ObjectPool/pool"
 )
 
-
-
 func main(){
 	workersCount := 10
 

@@ -44,19 +44,19 @@ func (cb *CompanyKVBuilder) SetDataEntity(data...interface{}) {
 		case 2: // infoEmail
 			param, ok := p.(string)
 			if !ok {
-				panic("phone parameter not type int.")
+				panic("phone parameter not type string.")
 			}
 			entity.InfoEmail = param
 		case 3: // mainPhone
 			param, ok := p.(string)
 			if !ok {
-				panic("phone parameter not type int.")
+				panic("phone parameter not type string.")
 			}
 			entity.MainPhone = param
 		case 4: // faxPhone
 			param, ok := p.(string)
 			if !ok {
-				panic("phone parameter not type int.")
+				panic("phone parameter not type string.")
 			}
 			entity.FaxPhone = param
 		default:

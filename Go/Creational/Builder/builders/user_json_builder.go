@@ -44,7 +44,7 @@ func (ub *UserJSONBuilder) SetDataEntity(data...interface{}) {
 		case 2: // phone
 			param, ok := p.(string)
 			if !ok {
-				panic("phone parameter not type int.")
+				panic("phone parameter not type string.")
 			}
 			entity.Phone = param
 		default:

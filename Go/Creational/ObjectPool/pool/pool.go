@@ -71,5 +71,4 @@ func (p *ProcessorPool)Release(obj *ImageProcessor) {
 	defer p.m.Unlock()
 	delete(p.used, obj.id)
 	p.idle[obj.id] = obj
-
 }
