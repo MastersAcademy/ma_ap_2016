@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zQu-GI-sqV">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Table View Controller-->
+        <scene sceneID="xFr-VK-gxT">
+            <objects>
+                <tableViewController id="SQF-dg-1Ol" customClass="TableViewController" customModule="Bridge" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ogE-G7-3n8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection id="GSg-hq-XJo">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="oEC-QI-ng8">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oEC-QI-ng8" id="lNz-Gj-WKZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get Videos from sqlite. Type: JSON" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3b-b1-mRa">
+                                                    <rect key="frame" x="23" y="8" width="344" height="27.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="d3b-b1-mRa" secondAttribute="bottom" id="Tcl-PO-YxM"/>
+                                                <constraint firstItem="d3b-b1-mRa" firstAttribute="leading" secondItem="lNz-Gj-WKZ" secondAttribute="leadingMargin" constant="15" id="bIr-wZ-Rhe"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="d3b-b1-mRa" secondAttribute="trailing" id="mug-ol-rzR"/>
+                                                <constraint firstItem="d3b-b1-mRa" firstAttribute="top" secondItem="lNz-Gj-WKZ" secondAttribute="topMargin" id="xk8-ok-m8w"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="XbY-ZQ-pqZ">
+                                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XbY-ZQ-pqZ" id="1NZ-f9-0BA">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get Videos from memory. Type: JSON" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BYB-f0-Fmt">
+                                                    <rect key="frame" x="23" y="8" width="344" height="27.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="BYB-f0-Fmt" firstAttribute="leading" secondItem="1NZ-f9-0BA" secondAttribute="leadingMargin" constant="15" id="2ON-lW-yLy"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="BYB-f0-Fmt" secondAttribute="trailing" id="HWY-dg-YRU"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="BYB-f0-Fmt" secondAttribute="bottom" id="VIS-BN-vST"/>
+                                                <constraint firstItem="BYB-f0-Fmt" firstAttribute="top" secondItem="1NZ-f9-0BA" secondAttribute="topMargin" id="Z2E-q8-qM3"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="aPN-z8-Ij8">
+                                        <rect key="frame" x="0.0" y="88" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aPN-z8-Ij8" id="4N4-JX-DJr">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get Videos from memory. Type: CSV" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uyi-3f-wBA">
+                                                    <rect key="frame" x="23" y="8" width="344" height="27.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Uyi-3f-wBA" firstAttribute="top" secondItem="4N4-JX-DJr" secondAttribute="topMargin" id="0LQ-Zz-MVi"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Uyi-3f-wBA" secondAttribute="bottom" id="Owh-26-86y"/>
+                                                <constraint firstItem="Uyi-3f-wBA" firstAttribute="leading" secondItem="4N4-JX-DJr" secondAttribute="leadingMargin" constant="15" id="Rrn-Wg-KhK"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Uyi-3f-wBA" secondAttribute="trailing" id="acE-uJ-kfw"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="WFC-tG-hMz">
+                                        <rect key="frame" x="0.0" y="132" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WFC-tG-hMz" id="0yc-Ry-i03">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get Videos from sqlite. Type: CSV" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BCB-Tf-nIL">
+                                                    <rect key="frame" x="23" y="8" width="344" height="27.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="BCB-Tf-nIL" secondAttribute="bottom" id="MVj-dZ-S5a"/>
+                                                <constraint firstItem="BCB-Tf-nIL" firstAttribute="leading" secondItem="0yc-Ry-i03" secondAttribute="leadingMargin" constant="15" id="Mfe-FU-zA9"/>
+                                                <constraint firstItem="BCB-Tf-nIL" firstAttribute="top" secondItem="0yc-Ry-i03" secondAttribute="topMargin" id="TOs-Gf-MEA"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="BCB-Tf-nIL" secondAttribute="trailing" id="doK-wl-Ei1"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="SQF-dg-1Ol" id="rjq-u3-3kl"/>
+                            <outlet property="delegate" destination="SQF-dg-1Ol" id="LSD-9X-grG"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="KBd-jY-P4V"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ebc-WC-K4H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="167" y="-803"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="baA-XI-P44">
+            <objects>
+                <navigationController id="zQu-GI-sqV" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OMa-5C-QPr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="SQF-dg-1Ol" kind="relationship" relationship="rootViewController" id="SSk-Lo-awL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dMP-F8-EuC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-721" y="-803"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="f5q-8H-xlJ">
+            <objects>
+                <viewController storyboardIdentifier="ViewController" id="Php-dd-Gr3" customClass="ViewController" customModule="Bridge" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Goi-Sd-dSJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="TcE-Y1-Y87"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xIn-6y-Ip5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Z0T-62-V2h">
+                                <rect key="frame" x="16" y="20" width="343" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Z0T-62-V2h" firstAttribute="top" secondItem="Goi-Sd-dSJ" secondAttribute="bottom" id="4f6-Sb-Nnj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Z0T-62-V2h" secondAttribute="trailing" id="5nL-rk-Kqm"/>
+                            <constraint firstItem="TcE-Y1-Y87" firstAttribute="top" secondItem="Z0T-62-V2h" secondAttribute="bottom" id="Sfl-6z-mxF"/>
+                            <constraint firstItem="Z0T-62-V2h" firstAttribute="leading" secondItem="xIn-6y-Ip5" secondAttribute="leadingMargin" id="Txp-gB-tCr"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="textView" destination="Z0T-62-V2h" id="IqG-jq-5tX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SZr-VX-vfg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="927" y="-804"/>
+        </scene>
+    </scenes>
+</document>
